@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class LoginRequest implements Serializable {
     private String username;
     private String password;
-
     public LoginRequest(String username, String password) {
         this.username = username;
         this.password = password;
@@ -29,4 +28,5 @@ public class LoginRequest implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

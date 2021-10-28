@@ -14,6 +14,18 @@
         android:theme="@style/Theme.PRM_Quiz"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AddQuizActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ScoreActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Result"
+            android:exported="true" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity

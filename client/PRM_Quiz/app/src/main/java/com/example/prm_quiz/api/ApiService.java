@@ -5,9 +5,12 @@ import com.example.prm_quiz.model.LoginRequest;
 import com.example.prm_quiz.model.LoginResponse;
 import com.example.prm_quiz.model.RegisterRequest;
 import com.example.prm_quiz.model.RegisterResponse;
+import com.example.prm_quiz.model.Subject;
 import com.example.prm_quiz.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -29,4 +32,6 @@ public interface ApiService {
     Call<RegisterResponse> register(@Body RegisterRequest rr);
     @GET("hello")
     Call<String> getSecretThings(@Header("Authorization") String token);
+    @GET("api/v1/subjects")
+    Call<List<Subject>> getALlSubject(@Header("Authorization") String token);
 }

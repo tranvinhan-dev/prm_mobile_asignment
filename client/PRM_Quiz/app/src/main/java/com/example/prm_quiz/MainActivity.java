@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             _intent.putExtra("user", user);
                             startActivity(_intent);
                         }else{
-                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong user or password", Toast.LENGTH_SHORT).show();
                         }
                     } catch (Exception e) {
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
