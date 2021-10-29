@@ -32,37 +32,23 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView tvUser;
     SharedPreferences prefs;
-
+    List<Quiz> quizList  ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        clickCallApi(getToken());
+        String token = getToken();
         //get list of quiz
-        List<Quiz> image_details = getListData();
-        final ListView listView = (ListView) findViewById(R.id.lvQuiz);
-        listView.setAdapter(new CustomListAdapter(HomeActivity.this, image_details));
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        quizList =new ArrayList<>();
+        getListData(token);
 
-            @Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                Object o = listView.getItemAtPosition(position);
-                Quiz quiz = (Quiz) o;
-                Intent _intent = new Intent(HomeActivity.this, QuizActivity.class);
-//                Bundle bundle =new Bundle();
-//                bundle.putSerializable("quiz", quiz);
-//                _intent.putExtras(bundle);
-                _intent.putExtra("quiz",quiz);
-                startActivity(_intent);
-            }
-        });
+
         Button btnScore = findViewById(R.id.btnScore);
         btnScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,ScoreActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ScoreActivity.class);
                 startActivity(intent);
             }
         });
@@ -70,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         btnScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,AddQuizActivity.class);
+                Intent intent = new Intent(HomeActivity.this, AddQuizActivity.class);
                 startActivity(intent);
             }
         });
@@ -88,17 +74,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Subject>> call, Response<List<Subject>> response) {
                 try {
-                    //get list of subject
-                    List<Subject> lt = response.body();
-                    List<String> list = new ArrayList<>();
-                    for (int i = 0; i < lt.size(); i++) {
-                        list.add(lt.get(i).getName());
-                    }
-//                    ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(HomeActivity.this,
-//                            android.R.layout.simple_spinner_dropdown_item, list);
-//                    dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                    Spinner spinner1 = findViewById(R.id.snSubject);
-//                    spinner1.setAdapter(dataAdapter);
+
 
                 } catch (Exception e) {
                     Toast.makeText(HomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -112,20 +88,43 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private List<Quiz> getListData() {
-        List<Question> listQuestion = new ArrayList<>();
-        listQuestion.add(new Question("1","What is pig mean ?","con cho","con heo","con ga","con bo","con heo","1"));
-        listQuestion.add(new Question("2","What is dog mean ?","con cho","con heo","con ga","con bo","con cho","1"));
-        listQuestion.add(new Question("3","What is chicken mean ?","con cho","con heo","con ga","con bo","con ga","1"));
+    private void getListData(String token) {
+        Call<List<Quiz>> userCall = ApiClient.getUserService().getQuizs("Bearer " + token);
+        userCall.enqueue(new Callback<List<Quiz>>() {
+            @Override
+            public void onResponse(Call<List<Quiz>> call, Response<List<Quiz>> response) {
+                try {
+                    //get list of subject
+                    quizList = response.body();
+                    if (!quizList.isEmpty()) {
+                        List<Quiz> image_details = quizList;
+                        final ListView listView = (ListView) findViewById(R.id.lvQuiz);
+                        listView.setAdapter(new CustomListAdapter(HomeActivity.this, image_details));
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        List<Quiz> list = new ArrayList<>();
-        Quiz vietnam = new Quiz("1", "Quiz-1", "Nam", "Math", "123456", 60000, listQuestion);
-        list.add(vietnam);
-//        list.add(usa);
-//        list.add(russia);
-//        list.add(australia);
-//        list.add(japan);
+                            @Override
+                            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+                                Object o = listView.getItemAtPosition(position);
+                                Quiz quiz = (Quiz) o;
+                                Intent _intent = new Intent(HomeActivity.this, QuizActivity.class);
+//                Bundle bundle =new Bundle();
+//                bundle.putSerializable("quiz", quiz);
+//                _intent.putExtras(bundle);
+                                _intent.putExtra("quiz", quiz);
+                                startActivity(_intent);
+                            }
+                        });
+                    }
+                    Toast.makeText(HomeActivity.this, "call sucess "+quizList.get(0).getListQuestion().get(0).toString(), Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(HomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        return list;
+            @Override
+            public void onFailure(Call<List<Quiz>> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Call Api Error" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

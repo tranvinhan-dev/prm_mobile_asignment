@@ -3,6 +3,7 @@ package com.example.prm_quiz.api;
 
 import com.example.prm_quiz.model.LoginRequest;
 import com.example.prm_quiz.model.LoginResponse;
+import com.example.prm_quiz.model.Quiz;
 import com.example.prm_quiz.model.RegisterRequest;
 import com.example.prm_quiz.model.RegisterResponse;
 import com.example.prm_quiz.model.Subject;
@@ -34,4 +35,6 @@ public interface ApiService {
     Call<String> getSecretThings(@Header("Authorization") String token);
     @GET("api/v1/subjects")
     Call<List<Subject>> getALlSubject(@Header("Authorization") String token);
+    @GET("api/v1/quizs")
+    Call<List<Quiz>> getQuizs(@Header("Authorization") String token);
 }

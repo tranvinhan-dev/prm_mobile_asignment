@@ -37,7 +37,7 @@ public class Subject{
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     @Column(name = "sName", nullable = false)

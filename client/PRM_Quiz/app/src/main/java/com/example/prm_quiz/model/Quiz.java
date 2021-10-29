@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Quiz implements Serializable {
-    private String id;
+
+    private Long id;
     private String name;
     private String teacherName;
     private String subject;
@@ -15,7 +16,7 @@ public class Quiz implements Serializable {
     public Quiz() {
     }
 
-    public Quiz(String id, String name, String teacherName, String subject, String password, int time, List<Question> listQuestion) {
+    public Quiz(Long id, String name, String teacherName, String subject, String password, int time, List<Question> listQuestion) {
         this.id = id;
         this.name = name;
         this.teacherName = teacherName;
@@ -25,11 +26,11 @@ public class Quiz implements Serializable {
         this.listQuestion = listQuestion;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -79,5 +80,19 @@ public class Quiz implements Serializable {
 
     public void setListQuestion(List<Question> listQuestion) {
         this.listQuestion = listQuestion;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", subject='" + subject + '\'' +
+                ", password='" + password + '\'' +
+                ", time=" + time +
+                ", listQuestion=" + listQuestion +
+                '}';
     }
 }

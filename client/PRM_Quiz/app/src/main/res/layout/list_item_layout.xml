@@ -15,30 +15,72 @@
         android:padding="20dp">
 
         <LinearLayout
-            android:layout_width="258dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvQuizName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvTeacherName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                <TextView
+                    android:id="@+id/tvQuizName2"
+                    android:layout_width="248dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quiz Name:"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/tvSubject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/tvQuizName"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTeacherName2"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Teacher Name:" />
+
+                <TextView
+                    android:id="@+id/tvTeacherName"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvSubject2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quiz Subject:"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvSubject"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

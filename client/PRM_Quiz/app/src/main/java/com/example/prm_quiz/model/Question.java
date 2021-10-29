@@ -3,19 +3,18 @@ package com.example.prm_quiz.model;
 import java.io.Serializable;
 
 public class Question implements Serializable {
-    private String id;
+    private Long id;
     private String question;
     private String answerA;
     private String answerB;
     private String answerC;
     private String answerD;
     private String correctAnswer;
-    private String quizId;
 
     public Question() {
     }
 
-    public Question(String id, String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer, String quizId) {
+    public Question(Long id, String question, String answerA, String answerB, String answerC, String answerD, String correctAnswer) {
         this.id = id;
         this.question = question;
         this.answerA = answerA;
@@ -23,14 +22,13 @@ public class Question implements Serializable {
         this.answerC = answerC;
         this.answerD = answerD;
         this.correctAnswer = correctAnswer;
-        this.quizId = quizId;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,11 +80,16 @@ public class Question implements Serializable {
         this.correctAnswer = correctAnswer;
     }
 
-    public String getQuizId() {
-        return quizId;
-    }
-
-    public void setQuizId(String quizId) {
-        this.quizId = quizId;
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", answerA='" + answerA + '\'' +
+                ", answerB='" + answerB + '\'' +
+                ", answerC='" + answerC + '\'' +
+                ", answerD='" + answerD + '\'' +
+                ", correctAnswer='" + correctAnswer + '\'' +
+                '}';
     }
 }
