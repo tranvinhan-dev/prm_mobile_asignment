@@ -14,13 +14,16 @@
         android:theme="@style/Theme.PRM_Quiz"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TeacherHomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddQuizActivity"
             android:exported="true" />
         <activity
             android:name=".ScoreActivity"
             android:exported="true" />
         <activity
-            android:name=".Result"
+            android:name=".ResultActivity"
             android:exported="true" />
         <activity
             android:name=".QuizActivity"
@@ -29,10 +32,10 @@
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".StudentHomeActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">PRM_Quiz</string>
+    <string name="app_name">Quiz Online</string>
+    <string name="lb_username">Username</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="lb_password">Password</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="label_btnLogin">Login</string>
+    <string name="label_btnSignUp">Sign Up</string>
+    <string name="lb_passwordConfirm">Password</string>
+    <string name="hint_passwordConfirm">Enter your password again</string>
+    <string name="lb_name">Full Name</string>
+    <string name="hint_name">Enter your full name</string>
+    <string name="label_btnBack">Back</string>
+    <string name="label_btnViewScore">View Your Score</string>
+    <string name="label_btnAddQuiz">Add More Quiz</string>
+    <string name="label_listQuiz">List of Quiz</string>
+    <string name="label_logout">Log out</string>
 </resources>

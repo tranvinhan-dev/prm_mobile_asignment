@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="50dp"
-        android:text="Quiz Online"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="34sp" />
 
@@ -21,14 +21,14 @@
         android:id="@+id/tvUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Username" />
+        android:text="@string/lb_username" />
 
     <EditText
         android:id="@+id/edtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter Username"
+        android:hint="@string/hint_username"
         android:inputType="textPersonName"
         android:minHeight="48dp" />
 
@@ -36,14 +36,14 @@
         android:id="@+id/tvPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password" />
+        android:text="@string/lb_password" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="ENter Password"
+        android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
@@ -51,12 +51,12 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="@string/label_btnLogin" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:text="@string/label_btnSignUp" />
 
 </LinearLayout>

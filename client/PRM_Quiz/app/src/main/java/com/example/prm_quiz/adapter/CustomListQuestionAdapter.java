@@ -1,4 +1,4 @@
-package com.example.prm_quiz;
+package com.example.prm_quiz.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.prm_quiz.R;
 import com.example.prm_quiz.model.Question;
-import com.example.prm_quiz.model.Quiz;
 
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +47,7 @@ public class CustomListQuestionAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.quiz_layout, null);
+            convertView = layoutInflater.inflate(R.layout.item_question_layout, null);
             holder = new ViewHolder();
             holder.tvQuestion = (TextView) convertView.findViewById(R.id.tvQuestion);
             holder.rbA = (RadioButton) convertView.findViewById(R.id.rbA);

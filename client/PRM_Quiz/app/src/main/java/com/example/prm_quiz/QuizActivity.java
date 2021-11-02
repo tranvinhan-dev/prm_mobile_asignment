@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.prm_quiz.adapter.CustomListQuestionAdapter;
 import com.example.prm_quiz.model.Question;
 import com.example.prm_quiz.model.Quiz;
 
@@ -37,7 +38,7 @@ public class QuizActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-            Intent _intent = new Intent(QuizActivity.this,Result.class);
+            Intent _intent = new Intent(QuizActivity.this, ResultActivity.class);
            Bundle bundle =new Bundle();
            bundle.putInt("size",q.getListQuestion().size());
            bundle.putInt("result",adapter.getResult());

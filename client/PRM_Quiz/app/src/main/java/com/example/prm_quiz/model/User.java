@@ -3,34 +3,15 @@ package com.example.prm_quiz.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private String id;
-    private String name;
     private String username;
-    private String password;
-
+    private String role;
+    private String name;
     public User() {
     }
 
-    public User(String id, String name, String username, String password) {
-        this.id = id;
-        this.name = name;
+    public User(String username, String role, String name) {
         this.username = username;
-        this.password = password;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+        this.role = role;
         this.name = name;
     }
 
@@ -42,21 +23,28 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRole() {
+        return role;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }

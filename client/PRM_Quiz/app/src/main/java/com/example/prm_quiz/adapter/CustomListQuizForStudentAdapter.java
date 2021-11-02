@@ -1,25 +1,24 @@
-package com.example.prm_quiz;
+package com.example.prm_quiz.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.prm_quiz.R;
 import com.example.prm_quiz.model.Quiz;
 
 import java.util.List;
 
-public class CustomListAdapter extends BaseAdapter {
+public class CustomListQuizForStudentAdapter extends BaseAdapter {
 
     private List<Quiz> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public CustomListAdapter(Context aContext, List<Quiz> listData) {
+    public CustomListQuizForStudentAdapter(Context aContext, List<Quiz> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
@@ -43,7 +42,7 @@ public class CustomListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.list_item_layout, null);
+            convertView = layoutInflater.inflate(R.layout.list_item_quiz_student_layout, null);
             holder = new ViewHolder();
             holder.tvName = (TextView) convertView.findViewById(R.id.tvQuizName);
             holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvTeacherName);

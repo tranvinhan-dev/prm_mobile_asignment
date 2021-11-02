@@ -37,4 +37,6 @@ public interface ApiService {
     Call<List<Subject>> getALlSubject(@Header("Authorization") String token);
     @GET("api/v1/quizs")
     Call<List<Quiz>> getQuizs(@Header("Authorization") String token);
+    @GET("api/v1/users/username/{username}")
+    Call<User> getUser(@Header("Authorization") String token, @Path("username") String username);
 }

@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.prm_quiz.api.ApiClient;
-import com.example.prm_quiz.model.LoginRequest;
-import com.example.prm_quiz.model.LoginResponse;
 import com.example.prm_quiz.model.RegisterRequest;
 import com.example.prm_quiz.model.RegisterResponse;
 
@@ -63,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                         try {
                             if(response.code() != 401){
-                                Intent _intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                Intent _intent = new Intent(RegisterActivity.this, StudentHomeActivity.class);
                                 RegisterResponse user = response.body();
                                 startActivity(_intent);
                             }else{
