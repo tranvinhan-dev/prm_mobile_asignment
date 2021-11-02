@@ -5,6 +5,7 @@
  */
 package com.javainuse.dao;
 
+import com.javainuse.model.DAOUser;
 import com.javainuse.model.Score;
 
 /**

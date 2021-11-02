@@ -5,29 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 @Entity
-@Table(name = "tbl_score")
+@Table(name = "tbl_score3")
 public class Score {
 	private Long id;
-	private DAOUser user;
-	private Quiz quiz;
+	private Long userId;
+	private Long quizId;
 	private int score;
 	public Score() {
 		
 	}
-	public Score(Long id, DAOUser user, Quiz quiz, int score) {
+	
+	public Score(Long id, Long user_id, Long quiz_id, int score) {
 		super();
 		this.id = id;
-		this.user = user;
-		this.quiz = quiz;
+		this.userId = user_id;
+		this.quizId = quiz_id;
 		this.score = score;
 	}
+
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
@@ -36,22 +34,23 @@ public class Score {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@JsonBackReference
-	@ManyToOne(targetEntity = DAOUser.class)
-	public DAOUser getUser() {
-		return user;
+	@Column(name = "user_id", nullable = false)
+	public Long getUser_id() {
+		return userId;
 	}
-	public void setUser(DAOUser user) {
-		this.user = user;
+
+	public void setUser_id(Long user_id) {
+		this.userId = user_id;
 	}
-	@JsonBackReference
-	@OneToOne(targetEntity = Quiz.class)
-	public Quiz getQuiz() {
-		return quiz;
+	@Column(name = "quiz_id", nullable = false)
+	public Long getQuiz_id() {
+		return quizId;
 	}
-	public void setQuiz(Quiz quiz) {
-		this.quiz = quiz;
+
+	public void setQuiz_id(Long quiz_id) {
+		this.quizId = quiz_id;
 	}
+
 	@Column(name = "Score", nullable = false)
 	public int getScore() {
 		return score;
