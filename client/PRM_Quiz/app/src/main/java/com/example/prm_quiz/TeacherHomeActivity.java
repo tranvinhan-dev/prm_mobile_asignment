@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.prm_quiz.adapter.CustomListQuizForAdminAdapter;
 import com.example.prm_quiz.api.ApiClient;
 import com.example.prm_quiz.model.Quiz;
+import com.example.prm_quiz.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,8 @@ public class TeacherHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherHomeActivity.this, AddQuizActivity.class);
+                User user = (User) getIntent().getSerializableExtra("user");
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });

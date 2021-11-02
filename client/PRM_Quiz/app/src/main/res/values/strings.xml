@@ -21,9 +21,11 @@
     <string name="tv_quiz_name">Quiz Name:</string>
     <string name="hint_quiz_name">Enter Quiz Name</string>
     <string name="tv_subject_name">Subject Name:</string>
-    <string name="hint_subject_name">Enter Subject Name</string>
+    <string name="hint_subject_name">Enter Quiz Subject Name</string>
     <string name="tv_quiz_time">Quiz Time:</string>
     <string name="hint_quiz_time">Enter Quiz Time</string>
+    <string name="tv_password">Enter Password</string>
+    <string name="hint_quiz_password">Enter Quiz Password</string>
     <string name="btn_Add">Add</string>
     <string name="btn_Cancel">Cancel</string>
     <!--Add Quiz page - End-->
