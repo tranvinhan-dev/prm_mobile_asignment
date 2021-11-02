@@ -20,8 +20,28 @@ public class DAOUser {
     private String password;
     @Column
     private String name;
+    
+    public DAOUser() {
+		super();
+	}
 
-    public String getUsername() {
+	public DAOUser(long id, String username, String role, String password, String name) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.role = role;
+		this.password = password;
+		this.name = name;
+	}
+
+	public DAOUser(String username, String role, String name) {
+		super();
+		this.username = username;
+		this.role = role;
+		this.name = name;
+	}
+
+	public String getUsername() {
         return username;
     }
 
