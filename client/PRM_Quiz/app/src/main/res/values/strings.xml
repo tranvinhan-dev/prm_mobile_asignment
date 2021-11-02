@@ -12,7 +12,19 @@
     <string name="hint_name">Enter your full name</string>
     <string name="label_btnBack">Back</string>
     <string name="label_btnViewScore">View Your Score</string>
-    <string name="label_btnAddQuiz">Add More Quiz</string>
+    <string name="label_btnAddQuiz">Add Quiz</string>
     <string name="label_listQuiz">List of Quiz</string>
     <string name="label_logout">Log out</string>
+    <!--Add Quiz page - Begin-->
+    <string name="tv_add_quiz">Add Quiz</string>
+    <string name="tv_teacher_email">Teacher Email:</string>
+    <string name="tv_quiz_name">Quiz Name:</string>
+    <string name="hint_quiz_name">Enter Quiz Name</string>
+    <string name="tv_subject_name">Subject Name:</string>
+    <string name="hint_subject_name">Enter Subject Name</string>
+    <string name="tv_quiz_time">Quiz Time:</string>
+    <string name="hint_quiz_time">Enter Quiz Time</string>
+    <string name="btn_Add">Add</string>
+    <string name="btn_Cancel">Cancel</string>
+    <!--Add Quiz page - End-->
 </resources>
