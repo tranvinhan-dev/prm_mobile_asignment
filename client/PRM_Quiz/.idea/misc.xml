@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_add_quiz.xml" value="0.20572916666666666" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_quiz.xml" value="0.20572916666666666" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_quiz_check_password.xml" value="0.25" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_result.xml" value="0.1" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_score.xml" value="0.33" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_student_home.xml" value="0.20572916666666666" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_teacher_home.xml" value="0.1953125" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_question_create_layout.xml" value="0.20572916666666666" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_question_layout.xml" value="0.22" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_score_layout.xml" value="0.25" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/list_item_quiz_admin_layout.xml" value="0.1" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/list_item_quiz_student_layout.xml" value="0.1" />
         <entry key="..\:/FPT/Homework/PRM/PRM_Quiz/app/src/main/res/layout/activity_add_quiz.xml" value="0.5" />
         <entry key="..\:/FPT/Homework/PRM/PRM_Quiz/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/FPT/Homework/PRM/PRM_Quiz/app/src/main/res/layout/activity_login.xml" value="0.20260416666666667" />

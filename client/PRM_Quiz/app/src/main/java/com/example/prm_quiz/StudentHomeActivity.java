@@ -26,6 +26,7 @@ import retrofit2.Response;
 
 public class StudentHomeActivity extends AppCompatActivity {
     SharedPreferences prefs;
+    SharedPreferences.Editor edit;
     List<Quiz> quizList  ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,6 @@ public class StudentHomeActivity extends AppCompatActivity {
         //get list of quiz
         quizList =new ArrayList<>();
         getListData(token);
-
         Button btnScore = findViewById(R.id.btnScore);
         btnScore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,26 +65,6 @@ public class StudentHomeActivity extends AppCompatActivity {
         return token;
     }
 
-    private void clickCallApi(String token) {
-        Call<List<Subject>> userCall = ApiClient.getUserService().getALlSubject("Bearer " + token);
-        userCall.enqueue(new Callback<List<Subject>>() {
-            @Override
-            public void onResponse(Call<List<Subject>> call, Response<List<Subject>> response) {
-                try {
-
-
-                } catch (Exception e) {
-                    Toast.makeText(StudentHomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Subject>> call, Throwable t) {
-                Toast.makeText(StudentHomeActivity.this, "Call Api Error" + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     private void getListData(String token) {
         Call<List<Quiz>> userCall = ApiClient.getUserService().getQuizs("Bearer " + token);
         userCall.enqueue(new Callback<List<Quiz>>() {
@@ -104,16 +84,13 @@ public class StudentHomeActivity extends AppCompatActivity {
                             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                                 Object o = listView.getItemAtPosition(position);
                                 Quiz quiz = (Quiz) o;
-                                Intent _intent = new Intent(StudentHomeActivity.this, QuizActivity.class);
-//                Bundle bundle =new Bundle();
-//                bundle.putSerializable("quiz", quiz);
-//                _intent.putExtras(bundle);
+                                Intent _intent = new Intent(StudentHomeActivity.this, QuizCheckPasswordActivity.class);
                                 _intent.putExtra("quiz", quiz);
                                 startActivity(_intent);
                             }
                         });
                     }
-                    Toast.makeText(StudentHomeActivity.this, "call sucess "+quizList.get(0).getListQuestion().get(0).toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StudentHomeActivity.this, "call sucess", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Toast.makeText(StudentHomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

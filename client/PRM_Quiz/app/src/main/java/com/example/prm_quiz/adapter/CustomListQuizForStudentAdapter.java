@@ -44,9 +44,9 @@ public class CustomListQuizForStudentAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.list_item_quiz_student_layout, null);
             holder = new ViewHolder();
-            holder.tvName = (TextView) convertView.findViewById(R.id.tvQuizName);
+            holder.tvName = (TextView) convertView.findViewById(R.id.tvScoreQuizName);
             holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvTeacherName);
-            holder.tvSubject = (TextView) convertView.findViewById(R.id.tvSubject);
+            holder.tvSubject = (TextView) convertView.findViewById(R.id.tvScore);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

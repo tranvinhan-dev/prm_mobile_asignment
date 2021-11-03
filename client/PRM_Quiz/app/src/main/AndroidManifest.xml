@@ -35,6 +35,9 @@
             android:name=".StudentHomeActivity"
             android:exported="true" />
         <activity
+            android:name=".QuizCheckPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>

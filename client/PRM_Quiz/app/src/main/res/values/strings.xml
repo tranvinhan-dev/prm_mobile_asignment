@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz Online</string>
+    <string name="app_name">Quiz PRM Online</string>
     <string name="lb_username">Username</string>
     <string name="hint_username">Enter your username</string>
     <string name="lb_password">Password</string>

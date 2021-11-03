@@ -67,6 +67,7 @@ public class ScoreController {
         score.setQuizId(scoreDetails.getQuizId());
         score.setUserId(scoreDetails.getUserId());
         score.setQuizName(scoreDetails.getQuizName());
+        score.setDate(scoreDetails.getDate());
         final Score updatedScore = scoreRepository.save(score);
         return ResponseEntity.ok(updatedScore);
     }

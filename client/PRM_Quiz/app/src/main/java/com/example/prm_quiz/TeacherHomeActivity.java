@@ -75,7 +75,7 @@ public class TeacherHomeActivity extends AppCompatActivity {
                     if (!quizList.isEmpty()) {
                         List<Quiz> image_details = quizList;
                         final ListView listView = (ListView) findViewById(R.id.lvQuiz2);
-                        listView.setAdapter(new CustomListQuizForAdminAdapter(TeacherHomeActivity.this, image_details));
+                        listView.setAdapter(new CustomListQuizForAdminAdapter(TeacherHomeActivity.this, image_details,prefs));
                     }
                     Toast.makeText(TeacherHomeActivity.this, "call sucess "+quizList.get(0).getListQuestion().get(0).toString(), Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {

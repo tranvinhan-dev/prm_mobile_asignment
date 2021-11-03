@@ -8,17 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.prm_quiz.R;
-import com.example.prm_quiz.model.Quiz;
+import com.example.prm_quiz.model.Score;
 
 import java.util.List;
 
-public class CustomListQuizForAdminAdapter extends BaseAdapter {
+public class CustomListScoreForStudentAdapter extends BaseAdapter {
 
-    private List<Quiz> listData;
+    private List<Score> listData;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public CustomListQuizForAdminAdapter(Context aContext, List<Quiz> listData) {
+    public CustomListScoreForStudentAdapter(Context aContext, List<Score> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
@@ -42,28 +42,25 @@ public class CustomListQuizForAdminAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.list_item_quiz_admin_layout, null);
+            convertView = layoutInflater.inflate(R.layout.item_score_layout, null);
             holder = new ViewHolder();
-            holder.tvName = (TextView) convertView.findViewById(R.id.tvQuizName);
-            holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvTeacherName);
-            holder.tvSubject = (TextView) convertView.findViewById(R.id.tvScore);
+            holder.tvQuizName = (TextView) convertView.findViewById(R.id.tvScoreQuizName);
+            holder.tvScore = (TextView) convertView.findViewById(R.id.tvScore);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Quiz  quiz= (Quiz) this.listData.get(position);
-        holder.tvName.setText(quiz.getName()+"");
-        holder.tvTeacherName.setText(quiz.getTeacherName()+"");
-        holder.tvSubject.setText(quiz.getSubject()+"");
+        Score  score= (Score) this.listData.get(position);
+        holder.tvQuizName.setText(score.getQuizName()+"");
+        holder.tvScore.setText(score.getScore()+"");
         return convertView;
     }
 
 
     static class ViewHolder {
-        TextView tvName;
-        TextView tvSubject;
-        TextView tvTeacherName;
+        TextView tvQuizName;
+        TextView tvScore;
     }
 
 }

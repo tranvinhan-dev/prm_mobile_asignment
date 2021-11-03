@@ -133,13 +133,12 @@ public class LoginActivity extends AppCompatActivity {
 //                                    Toast.makeText(LoginActivity.this, user.toString(), Toast.LENGTH_SHORT).show();
                                     //chuyen trang
                                     if(user!=null){
+                                        edit.putLong("id",user.getId());
                                         if(user.getRole().equals("student")){
                                             Intent _intent = new Intent(LoginActivity.this, StudentHomeActivity.class);
-                                            _intent.putExtra("user", user);
                                             startActivity(_intent);
                                         }else{
                                             Intent _intent = new Intent(LoginActivity.this, TeacherHomeActivity.class);
-                                            _intent.putExtra("user", user);
                                             startActivity(_intent);
                                         }
                                     }

@@ -6,9 +6,13 @@
 package com.javainuse.controller;
 
 import com.javainuse.model.Quiz;
+
+import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +25,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 import question.ResourceNotFoundException;
 import com.javainuse.dao.QuizRepository;
 
@@ -52,31 +58,53 @@ public class QuizController {
 
     @CrossOrigin
     @PostMapping("/quizs")
-    public Quiz createQuiz(@Valid @RequestBody Quiz quiz) {
-        return quizRepository.save(quiz);
+    public ResponseEntity<Quiz> createQuiz(@Valid @RequestBody Quiz quiz) {
+//        return quizRepository.save(quiz);
+        Quiz savedLibrary = quizRepository.save(quiz);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+            .buildAndExpand(savedLibrary.getId()).toUri();
+
+        return ResponseEntity.created(location).body(savedLibrary);
     }
 
     @CrossOrigin
     @PutMapping("/quizs/{id}")
-    public ResponseEntity<Quiz> updateQuiz(@PathVariable(value = "qid") Long quizId,
+    public ResponseEntity<Quiz> updateQuiz(@PathVariable(value = "id") Long quizId,
             @Valid @RequestBody Quiz quizDetails) throws ResourceNotFoundException {
-        Quiz quiz = quizRepository.findById(quizId)
-                .orElseThrow(() -> new ResourceNotFoundException("Quiz not found for this id :: " + quizId));
-        quiz = new Quiz(quizDetails.getName(),quizDetails.getTeacherName(),quizDetails.getSubject(),quizDetails.getPassword(),quizDetails.getTime(),quizDetails.getListQuestion());
-        final Quiz updatedQuiz = quizRepository.save(quiz);
-        return ResponseEntity.ok(updatedQuiz);
+//        Quiz quiz = quizRepository.findById(quizId)
+//                .orElseThrow(() -> new ResourceNotFoundException("Quiz not found for this id :: " + quizId));
+//        quiz = new Quiz(quizDetails.getName(),quizDetails.getTeacherName(),quizDetails.getSubject(),quizDetails.getPassword(),quizDetails.getTime(),quizDetails.getListQuestion());
+//        final Quiz updatedQuiz = quizRepository.save(quiz);
+//        return ResponseEntity.ok(updatedQuiz);
+    	Optional<Quiz> optionalLibrary = quizRepository.findById(quizId);
+        if (!optionalLibrary.isPresent()) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
+
+        quizDetails.setId(optionalLibrary.get().getId());
+        quizRepository.save(quizDetails);
+
+        return ResponseEntity.noContent().build();
     }
 
     @CrossOrigin
     @DeleteMapping("/quizs/{id}")
-    public Map<String, Boolean> deleteQuiz(@PathVariable(value = "id") Long quizId)
+    public ResponseEntity<Quiz> deleteQuiz(@PathVariable(value = "id") Long quizId)
             throws ResourceNotFoundException {
-        Quiz quiz = quizRepository.findById(quizId)
-                .orElseThrow(() -> new ResourceNotFoundException("Quiz not found for this id :: " + quizId));
+//        Quiz quiz = quizRepository.findById(quizId)
+//                .orElseThrow(() -> new ResourceNotFoundException("Quiz not found for this id :: " + quizId));
+//
+//        quizRepository.delete(quiz);
+//        Map<String, Boolean> response = new HashMap<>();
+//        response.put("deleted", Boolean.TRUE);
+//        return response;
+    	Optional<Quiz> optionalLibrary = quizRepository.findById(quizId);
+        if (!optionalLibrary.isPresent()) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
 
-        quizRepository.delete(quiz);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
+        quizRepository.delete(optionalLibrary.get());
+
+        return ResponseEntity.noContent().build();
     }
 }

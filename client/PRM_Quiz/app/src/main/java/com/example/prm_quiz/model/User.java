@@ -3,16 +3,26 @@ package com.example.prm_quiz.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private Long id;
     private String username;
     private String role;
     private String name;
     public User() {
     }
 
-    public User(String username, String role, String name) {
+    public User(Long id, String username, String role, String name) {
+        this.id = id;
         this.username = username;
         this.role = role;
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -42,9 +52,10 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                ", name='" + name + '\'' +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

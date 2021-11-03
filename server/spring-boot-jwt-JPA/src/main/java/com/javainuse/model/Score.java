@@ -1,5 +1,7 @@
 package com.javainuse.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,19 +17,22 @@ public class Score {
 	private Long quizId;
 	private String quizName;
 	private int score;
+	private String date;
 	public Score() {
 		
 	}
 	
 	
 
-	public Score(Long id, Long userId, Long quizId, String quizName, int score) {
+	
+	public Score(Long id, Long userId, Long quizId, String quizName, int score, String date) {
 		super();
 		this.id = id;
 		this.userId = userId;
 		this.quizId = quizId;
 		this.quizName = quizName;
 		this.score = score;
+		this.date = date;
 	}
 
 	@Id
@@ -80,6 +85,18 @@ public class Score {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+
+
+	@Column(name = "date", nullable = false)
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
