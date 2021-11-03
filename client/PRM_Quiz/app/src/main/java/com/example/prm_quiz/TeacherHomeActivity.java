@@ -34,7 +34,7 @@ public class TeacherHomeActivity extends AppCompatActivity {
         //get list of quiz
         quizList =new ArrayList<>();
         getListData(token);
-        Button btnAdd = findViewById(R.id.btnAddQuiz);
+        Button btnAdd = findViewById(R.id.btnUpdateQuiz);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

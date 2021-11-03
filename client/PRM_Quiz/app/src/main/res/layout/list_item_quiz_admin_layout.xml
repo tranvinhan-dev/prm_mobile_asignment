@@ -55,7 +55,7 @@
                     android:text="Teacher Name:" />
 
                 <TextView
-                    android:id="@+id/tvTeacherName"
+                    android:id="@+id/tvUpdateTeacherName"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:text="TextView" />

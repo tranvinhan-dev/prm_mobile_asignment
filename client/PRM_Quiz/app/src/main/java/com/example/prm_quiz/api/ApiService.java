@@ -48,16 +48,10 @@ public interface ApiService {
     Call<Score> putScore(@Header("Authorization") String token, @Body Score score);
     @GET("api/v1/scores")
     Call<List<Score>> getScore(@Header("Authorization") String token);
-    @DELETE("api/v1/questions/{id}")
-    Call<DeleteResponse> deleteQuestion(@Header("Authorization") String token, @Path("id") Long questionId);
     @DELETE("api/v1/quizs/{id}")
     Call<DeleteResponse> deleteQuiz(@Header("Authorization") String token, @Path("id") Long quizId);
-    @PUT("api/v1/questions/{id}")
-    Call<Question> updateQuestion(@Header("Authorization") String token, @Path("id") Long questionId, @Body Question question);
     @PUT("api/v1/quizs/{id}")
     Call<Quiz> updateQuiz(@Header("Authorization") String token, @Path("id") Long quizId, @Body Quiz quiz);
-    @POST("api/v1/questions")
-    Call<Question> updateQuestion(@Header("Authorization") String token, @Body Question question);
     @POST("api/v1/quizs")
-    Call<Quiz> updateQuiz(@Header("Authorization") String token, @Body Quiz quiz);
+    Call<Quiz> addQuiz(@Header("Authorization") String token, @Body Quiz quiz);
 }

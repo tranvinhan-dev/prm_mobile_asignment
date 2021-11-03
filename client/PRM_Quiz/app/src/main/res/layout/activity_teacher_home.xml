@@ -28,7 +28,7 @@
         android:text="@string/label_logout" />
 
     <Button
-        android:id="@+id/btnAddQuiz"
+        android:id="@+id/btnUpdateQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_btnAddQuiz" />

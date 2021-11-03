@@ -134,6 +134,8 @@ public class LoginActivity extends AppCompatActivity {
                                     //chuyen trang
                                     if(user!=null){
                                         edit.putLong("id",user.getId());
+                                        edit.putString("name",user.getName());
+                                        edit.commit();
                                         if(user.getRole().equals("student")){
                                             Intent _intent = new Intent(LoginActivity.this, StudentHomeActivity.class);
                                             startActivity(_intent);

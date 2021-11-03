@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.prm_quiz.model.Quiz;
+import com.example.prm_quiz.util.MyEncryption;
 
 public class QuizCheckPasswordActivity extends AppCompatActivity {
 
@@ -29,12 +30,16 @@ public class QuizCheckPasswordActivity extends AppCompatActivity {
 
                 //checkPassword
                 String password= q.getPassword();
-
-                EditText edtPassword = findViewById(R.id.edtQuizPassword);
+                String name = q.getName();
+                EditText edtPassword = findViewById(R.id.edtConfirmPassword);
                 String userInputPassword = edtPassword.getText()+"";
-
+                MyEncryption me = new MyEncryption();
                 if(userInputPassword.length()!=0){
-                    if(password.equals(userInputPassword)){
+                    String encryptPass = null;
+                    try {
+                        encryptPass = me.getMyEncryption(name, userInputPassword);
+                    } catch (Exception e){}
+                    if(password.equals(encryptPass)){
                         Intent _intent = new Intent(QuizCheckPasswordActivity.this, QuizActivity.class);
                         _intent.putExtra("quiz", q);
                         startActivity(_intent);

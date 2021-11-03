@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/tv_add_quiz"
+                android:text="Update Quiz"
                 android:textAlignment="center"
                 android:textSize="34sp" />
 
@@ -39,7 +39,7 @@
                     android:text="@string/tv_teacher_email" />
 
                 <TextView
-                    android:id="@+id/tvTeacherName"
+                    android:id="@+id/tvUpdateTeacherName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint=""
@@ -56,14 +56,14 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_subject_name" />
+                    android:text="@string/tv_quiz_time" />
 
                 <EditText
-                    android:id="@+id/edtSubjectName"
+                    android:id="@+id/edtUpdateQuizTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_subject_name"
-                    android:inputType="text"
+                    android:hint="@string/hint_quiz_time"
+                    android:inputType="number"
                     android:minHeight="48dp" />
             </LinearLayout>
 
@@ -78,7 +78,7 @@
                     android:text="@string/tv_quiz_name" />
 
                 <EditText
-                    android:id="@+id/edtQuizName"
+                    android:id="@+id/edtUpdateQuizName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_quiz_name"
@@ -94,10 +94,49 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_password" />
+                    android:text="@string/tv_subject_name" />
 
                 <EditText
-                    android:id="@+id/edtQuizPassword"
+                    android:id="@+id/edtUpdateSubjectName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_subject_name"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Old Password" />
+
+                <EditText
+                    android:id="@+id/edtOldPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_quiz_password"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Confim Password" />
+
+                <EditText
+                    android:id="@+id/edtConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_quiz_password"
@@ -113,14 +152,14 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Quiz Time (Milisecond):" />
+                    android:text="Enter New Password" />
 
                 <EditText
-                    android:id="@+id/edtQuizTime"
+                    android:id="@+id/edtNewPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_quiz_time"
-                    android:inputType="number"
+                    android:hint="@string/hint_quiz_password"
+                    android:inputType="textPassword"
                     android:minHeight="48dp" />
             </LinearLayout>
 
@@ -131,14 +170,14 @@
                 android:text="List of Question" />
 
             <ListView
-                android:id="@+id/lvQuestion"
+                android:id="@+id/lvUpdateQuestion"
                 android:layout_width="match_parent"
-                android:layout_height="532dp">
+                android:layout_height="649dp">
 
             </ListView>
 
             <Button
-                android:id="@+id/btnAddMoreQuestion"
+                android:id="@+id/btnAddMoreQuestion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Add more question" />
@@ -150,16 +189,16 @@
                 android:paddingTop="50dp">
 
                 <Button
-                    android:id="@+id/btnAddQuiz"
+                    android:id="@+id/btnUpdateQuiz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:layout_weight="1"
-                    android:text="@string/btn_Add" />
+                    android:text="Update" />
 
                 <Button
-                    android:id="@+id/btnCancelAddQuiz"
+                    android:id="@+id/btnCancelUpdateQuiz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="50dp"

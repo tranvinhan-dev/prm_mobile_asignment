@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.prm_quiz.QuizActivity;
 import com.example.prm_quiz.R;
-import com.example.prm_quiz.ResultActivity;
 import com.example.prm_quiz.TeacherHomeActivity;
+import com.example.prm_quiz.UpdateQuizActivity;
 import com.example.prm_quiz.api.ApiClient;
 import com.example.prm_quiz.model.DeleteResponse;
-import com.example.prm_quiz.model.Question;
 import com.example.prm_quiz.model.Quiz;
-import com.example.prm_quiz.model.Score;
 
 import java.util.List;
 
@@ -64,7 +60,7 @@ public class CustomListQuizForAdminAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.list_item_quiz_admin_layout, null);
             holder = new ViewHolder();
             holder.tvName = (TextView) convertView.findViewById(R.id.tvScoreQuizName);
-            holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvTeacherName);
+            holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvUpdateTeacherName);
             holder.tvSubject = (TextView) convertView.findViewById(R.id.tvSubject2);
             holder.btnDelete= convertView.findViewById(R.id.btnDelete);
             holder.btnUpdate=convertView.findViewById(R.id.btnEdit);
@@ -120,6 +116,14 @@ public class CustomListQuizForAdminAdapter extends BaseAdapter {
             }
 
 
+        });
+        holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context, UpdateQuizActivity.class);
+                in.putExtra("quiz",quiz);
+                context.startActivity(in);
+            }
         });
         return convertView;
     }
