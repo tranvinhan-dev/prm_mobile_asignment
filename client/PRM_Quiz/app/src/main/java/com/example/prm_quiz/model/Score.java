@@ -7,17 +7,20 @@ public class Score {
     private Long userId;
     private Long quizId;
     private String quizName;
-    private int score;
+    private int numOfCorrectQuestion;
+    private int size;
     private String date;
+
     public Score() {
     }
 
-    public Score(Long id, Long userId, Long quizId, String quizName, int score, String date) {
+    public Score(Long id, Long userId, Long quizId, String quizName, int numOfCorrectQuestion, int size, String date) {
         this.id = id;
         this.userId = userId;
         this.quizId = quizId;
         this.quizName = quizName;
-        this.score = score;
+        this.numOfCorrectQuestion = numOfCorrectQuestion;
+        this.size = size;
         this.date = date;
     }
 
@@ -53,12 +56,20 @@ public class Score {
         this.quizName = quizName;
     }
 
-    public int getScore() {
-        return score;
+    public int getNumOfCorrectQuestion() {
+        return numOfCorrectQuestion;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setNumOfCorrectQuestion(int numOfCorrectQuestion) {
+        this.numOfCorrectQuestion = numOfCorrectQuestion;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public String getDate() {
