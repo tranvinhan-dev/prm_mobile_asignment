@@ -10,14 +10,23 @@
     <string name="hint_passwordConfirm">Enter your password again</string>
     <string name="lb_name">Full Name</string>
     <string name="hint_name">Enter your full name</string>
-    <string name="label_btnBack">Back</string>
-    <string name="label_btnViewScore">View Your Score</string>
-    <string name="label_btnAddQuiz">Add Quiz</string>
+    <string name="tv_welcome_to_quiz_online">Welcome to Quiz Online</string>
+
     <string name="label_listQuiz">List of Quiz</string>
-    <string name="label_logout">Log out</string>
 
-
+    <string name="btn_logout">Log out</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_edit_quiz">Edit Quiz</string>
+    <string name="btn_delete_quiz">Delete Quiz</string>
+
+    <!--activity_student_home - Begin-->
+    <string name="btn_ViewYourScore">View Your Score</string>
+    <!--activity_student_home - End-->
+
+    <!--activity_teacher_home - Begin-->
+    <string name="btn_AddQuiz">Add Quiz</string>
+    <!--activity_teacher_home - End-->
 
     <!--Add Quiz page - Begin-->
     <string name="tv_add_quiz_title">Add quiz</string>
@@ -38,7 +47,6 @@
     <string name="btn_add_more_question">Add more question</string>
     <!--Add Quiz page - End-->
 
-
     <!--Quiz Check Password page - Begin-->
     <string name="btn_do_quiz">Do Quiz</string>
     <string name="hint_password_to_do_quiz">Enter this quiz password to do the test</string>
@@ -50,12 +58,6 @@
     <string name="tv_quizScore">100/100 Point</string>
     <!--Quiz Result page - End-->
 
-    <!--item_score_layout - Begin-->
-    <string name="tv_quiz_score">Quiz Score:</string>
-    <string name="tv_tmp_quiz_name">QuizName</string>
-    <string name="tv_tmp_quiz_score">100/100</string>
-    <!--item_score_layout - End-->
-
     <!--Update Quiz page - Begin-->
     <string name="tv_update_quiz_title">Update Quiz</string>
     <string name="tv_old_password">Old password:</string>
@@ -66,4 +68,41 @@
     <string name="hint_confirm_new_password">Re-enter quiz new password</string>
     <string name="btn_update">Update</string>
     <!--Update Quiz page - End-->
+
+    <!--item_score_layout - Begin-->
+    <string name="tv_quiz_score">Quiz Score:</string>
+    <string name="tv_date">Date:</string>
+    <string name="tv_tmp_quiz_name">tmp QuizName</string>
+    <string name="tv_tmp_quiz_score">tmp 100/100</string>
+    <string name="tv_tmp_do_quiz_date">tmp YYYY-MM-DD</string>
+    <!--item_score_layout - End-->
+
+    <!--list_item_quiz_admin - Begin-->
+    <string name="tv_teacher_name">Teacher Name:</string>
+    <string name="tv_tmp_teacher_name">tmp Teacher Name</string>
+    <string name="tv_quiz_subject">Quiz Subject:</string>
+    <string name="tv_tmp_quiz_subject">tmp Quiz Subject</string>
+    <!--list_item_quiz_admin - End-->
+
+    <!--item_question_create_layout - Begin-->
+    <string name="tv_question">Question</string>
+    <string name="hint_add_your_question">Add your question</string>
+    <string name="txt_answer_a">Answer A</string>
+    <string name="txt_answer_b">Answer B</string>
+    <string name="txt_answer_c">Answer C</string>
+    <string name="txt_answer_d">Answer D</string>
+    <string name="hint_answer_a">Answer A</string>
+    <string name="hint_answer_b">Answer B</string>
+    <string name="hint_answer_c">Answer C</string>
+    <string name="hint_answer_d">Answer D</string>
+    <string name="tv_correct_answer">Correct Answer</string>
+    <string name="txt_a">A</string>
+    <string name="txt_b">B</string>
+    <string name="txt_c">C</string>
+    <string name="txt_d">D</string>
+    <!--item_question_create_layout - End-->
+
+    <!--activity_result - Begin-->
+    <string name="tv_results_of_your_quizzes">Results of your quizzes</string>
+    <!--activity_result - End-->
 </resources>

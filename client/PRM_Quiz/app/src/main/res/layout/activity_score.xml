@@ -12,7 +12,16 @@
         android:id="@+id/btnBack2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back" />
+        android:text="@string/btn_back" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:gravity="center"
+        android:text="@string/tv_results_of_your_quizzes"
+        android:textSize="@dimen/textSize_20"/>
 
     <ListView
         android:id="@+id/lvScore"

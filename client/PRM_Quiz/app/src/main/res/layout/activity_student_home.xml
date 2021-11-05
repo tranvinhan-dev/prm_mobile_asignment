@@ -5,38 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/padding_20"
     tools:context=".StudentHomeActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:text="Quiz List"
+        android:padding="@dimen/padding_20"
+        android:text="@string/tv_welcome_to_quiz_online"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/textSize_20" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_logout" />
+        android:text="@string/btn_logout" />
 
     <Button
         android:id="@+id/btnScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_btnViewScore" />
+        android:text="@string/btn_ViewYourScore" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
         android:text="@string/label_listQuiz" />
 
     <ListView

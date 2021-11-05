@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="@dimen/margin_20"
     android:orientation="vertical"
     tools:context=".TeacherHomeActivity">
 
@@ -13,30 +13,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="Quiz List"
+        android:text="@string/tv_welcome_to_quiz_online"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/textSize_20" />
 
     <Button
         android:id="@+id/btnLogout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_logout" />
+        android:text="@string/btn_logout" />
 
     <Button
         android:id="@+id/btnUpdateQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_btnAddQuiz" />
+        android:text="@string/btn_AddQuiz" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
         android:text="@string/label_listQuiz" />
 
     <ListView
