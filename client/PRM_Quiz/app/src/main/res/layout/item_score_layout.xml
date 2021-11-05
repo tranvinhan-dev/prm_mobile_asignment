@@ -26,21 +26,20 @@
 
                 <TextView
                     android:id="@+id/tvQuizName2"
-                    android:layout_width="350dp"
+                    android:layout_width="248dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/tv_quiz_name"
+                    android:text="Quiz Name:"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textSize_20" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvScoreQuizName"
-                    android:layout_width="100dp"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/tv_tmp_quiz_name"
+                    android:text="TextView"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/textSize_20" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -50,18 +49,17 @@
 
                 <TextView
                     android:id="@+id/tvSubject2"
-                    android:layout_width="350dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/tv_quiz_score"
+                    android:text="Quiz Name:"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tvScore"
-                    android:layout_width="100dp"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/tv_tmp_quiz_score"
+                    android:text="TextView"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
