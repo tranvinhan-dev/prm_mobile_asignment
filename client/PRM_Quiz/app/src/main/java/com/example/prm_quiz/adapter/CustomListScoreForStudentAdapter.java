@@ -46,6 +46,7 @@ public class CustomListScoreForStudentAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvQuizName = (TextView) convertView.findViewById(R.id.tvScoreQuizName);
             holder.tvScore = (TextView) convertView.findViewById(R.id.tvScore);
+            holder.tvDate = (TextView) convertView.findViewById(R.id.tvDate);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -53,7 +54,8 @@ public class CustomListScoreForStudentAdapter extends BaseAdapter {
 
         Score  score= (Score) this.listData.get(position);
         holder.tvQuizName.setText(score.getQuizName()+"");
-        holder.tvScore.setText(score.getScore()+"");
+        holder.tvScore.setText(score.getNumOfCorrectQuestion()+"/"+score.getSize());
+        holder.tvDate.setText(score.getDate()+"");
         return convertView;
     }
 
@@ -61,6 +63,7 @@ public class CustomListScoreForStudentAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView tvQuizName;
         TextView tvScore;
+        TextView tvDate;
     }
 
 }

@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity {
                 result = adapter.getResult();
                 long millis=System.currentTimeMillis();
                 java.sql.Date date=new java.sql.Date(millis);
-                Score score = new Score(0L, getUserid(), q.getId(), q.getName(), result,date.toString());
+                Score score = new Score(0L, getUserid(), q.getId(), q.getName(), result,size,date.toString());
                 putScore(getToken(), score);
             }
 

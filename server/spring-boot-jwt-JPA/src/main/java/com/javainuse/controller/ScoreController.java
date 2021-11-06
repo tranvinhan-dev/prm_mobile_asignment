@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +39,7 @@ public class ScoreController {
     @CrossOrigin
     @GetMapping("/scores")
     public List<Score> getAllScores() {
-        return scoreRepository.findAll();
+        return scoreRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
     }
 
     @CrossOrigin
@@ -63,7 +64,8 @@ public class ScoreController {
         Score score = scoreRepository.findById(scoreId)
                 .orElseThrow(() -> new ResourceNotFoundException("Score not found for this id :: " + scoreId));
         score = new Score();
-        score.setScore(scoreDetails.getScore());
+        score.setNumOfCorrectQuestion(scoreDetails.getNumOfCorrectQuestion());
+        score.setSize(scoreDetails.getSize());
         score.setQuizId(scoreDetails.getQuizId());
         score.setUserId(scoreDetails.getUserId());
         score.setQuizName(scoreDetails.getQuizName());

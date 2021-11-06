@@ -52,11 +52,33 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Quiz Name:"
+					          android:text="@string/tv_quiz_score"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tvScore"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quiz Do Date:"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvDate"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:text="TextView"
