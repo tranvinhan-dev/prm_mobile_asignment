@@ -27,6 +27,5 @@
         android:id="@+id/btnFinish"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_40"
         android:text="Finish" />
 </LinearLayout>

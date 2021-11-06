@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz Online</string>
+    <string name="app_name">Quiz PRM Online</string>
     <string name="lb_username">Username</string>
     <string name="hint_username">Enter your username</string>
     <string name="lb_password">Password</string>
@@ -15,10 +15,7 @@
     <string name="label_btnAddQuiz">Add Quiz</string>
     <string name="label_listQuiz">List of Quiz</string>
     <string name="label_logout">Log out</string>
-
-
     <string name="btn_cancel">Cancel</string>
-
     <!--Add Quiz page - Begin-->
     <string name="tv_add_quiz_title">Add quiz</string>
     <string name="tv_teacher_email">Teacher email:</string>
@@ -37,25 +34,6 @@
     <string name="btn_addQuiz">Add</string>
     <string name="btn_add_more_question">Add more question</string>
     <!--Add Quiz page - End-->
-
-
-    <!--Quiz Check Password page - Begin-->
-    <string name="btn_do_quiz">Do Quiz</string>
-    <string name="hint_password_to_do_quiz">Enter this quiz password to do the test</string>
-    <!--Quiz Check Password page - End-->
-
-    <!--Quiz Result page - Begin-->
-    <string name="tv_noCorrectAnswer">10/10 Correct Answer</string>
-    <string name="btn_finish_and_close">Finish and Close</string>
-    <string name="tv_quizScore">100/100 Point</string>
-    <!--Quiz Result page - End-->
-
-    <!--item_score_layout - Begin-->
-    <string name="tv_quiz_score">Quiz Score:</string>
-    <string name="tv_tmp_quiz_name">QuizName</string>
-    <string name="tv_tmp_quiz_score">100/100</string>
-    <!--item_score_layout - End-->
-
     <!--Update Quiz page - Begin-->
     <string name="tv_update_quiz_title">Update Quiz</string>
     <string name="tv_old_password">Old password:</string>

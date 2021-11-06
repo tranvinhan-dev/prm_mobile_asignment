@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="margin_40">40dp</dimen>
-    <dimen name="padding_40">40dp</dimen>
-    <dimen name="height_tall">100dp</dimen>
-    <dimen name="textSize_Large">34sp</dimen>
-    <dimen name="textSize_20">20sp</dimen>
-</resources>
