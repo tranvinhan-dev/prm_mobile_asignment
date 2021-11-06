@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz Online</string>
+    <string name="app_name">Quiz PRM Online</string>
     <string name="lb_username">Username</string>
     <string name="hint_username">Enter your username</string>
     <string name="lb_password">Password</string>
@@ -13,14 +13,10 @@
     <string name="tv_welcome_to_quiz_online">Welcome to Quiz Online</string>
 
     <string name="label_listQuiz">List of Quiz</string>
-
-    <string name="btn_logout">Log out</string>
-    <string name="btn_cancel">Cancel</string>
-    <string name="btn_back">Back</string>
+<string name="btn_logout">Log out</string>    <string name="btn_cancel">Cancel</string>
+<string name="btn_back">Back</string>
     <string name="btn_edit_quiz">Edit Quiz</string>
-    <string name="btn_delete_quiz">Delete Quiz</string>
-
-    <!--activity_student_home - Begin-->
+    <string name="btn_delete_quiz">Delete Quiz</string>    <!--activity_student_home - Begin-->
     <string name="btn_ViewYourScore">View Your Score</string>
     <!--activity_student_home - End-->
 
@@ -46,8 +42,7 @@
     <string name="btn_addQuiz">Add</string>
     <string name="btn_add_more_question">Add more question</string>
     <!--Add Quiz page - End-->
-
-    <!--Quiz Check Password page - Begin-->
+<!--Quiz Check Password page - Begin-->
     <string name="btn_do_quiz">Do Quiz</string>
     <string name="hint_password_to_do_quiz">Enter this quiz password to do the test</string>
     <!--Quiz Check Password page - End-->
@@ -56,9 +51,7 @@
     <string name="tv_noCorrectAnswer">10/10 Correct Answer</string>
     <string name="btn_finish_and_close">Finish and Close</string>
     <string name="tv_quizScore">100/100 Point</string>
-    <!--Quiz Result page - End-->
-
-    <!--Update Quiz page - Begin-->
+    <!--Quiz Result page - End-->    <!--Update Quiz page - Begin-->
     <string name="tv_update_quiz_title">Update Quiz</string>
     <string name="tv_old_password">Old password:</string>
     <string name="hint_quiz_old_password">Enter quiz old password</string>
