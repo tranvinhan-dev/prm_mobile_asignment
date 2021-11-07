@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:padding="@dimen/padding_20"
     android:orientation="vertical"
     tools:context=".AddQuizActivity">
 
@@ -22,18 +22,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
+                android:paddingBottom="@dimen/padding_10"
                 android:text="@string/tv_update_quiz_title"
                 android:textAlignment="center"
-                android:textSize="34sp" />
+                android:textSize="@dimen/textSize_34"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="@dimen/padding_10">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:text="@string/tv_teacher_email" />
                 <TextView
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_subject_name" />
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_subject_name"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <LinearLayout
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_quiz_name" />
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_quiz_name"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <LinearLayout
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_quiz_time" />
@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_quiz_time"
                     android:inputType="number"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_old_password" />
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_quiz_old_password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <LinearLayout
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_new_password" />
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_enter_quiz_new_password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <LinearLayout
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="@dimen/layout_width_100"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_confirm_new_password" />
@@ -151,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_confirm_new_password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp" />
+                    android:minHeight="@dimen/height_50" />
             </LinearLayout>
 
             <TextView
@@ -166,13 +166,14 @@
                 android:id="@+id/lvUpdateQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="true"></ListView>
+                android:nestedScrollingEnabled="true">
+            </ListView>
 
             <Button
                 android:id="@+id/btnAddMoreQuestion2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add more question" />
+                android:text="@string/btn_add_more_question" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,15 +184,15 @@
                     android:id="@+id/btnUpdateQuiz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="@dimen/margin_40"
+                    android:layout_marginRight="@dimen/margin_40"
                     android:layout_weight="1"
                     android:text="@string/btn_update" />
                 <Button
                     android:id="@+id/btnCancelUpdateQuiz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="50dp"
+                    android:layout_marginRight="@dimen/margin_40"
                     android:layout_weight="1"
                     android:text="@string/btn_cancel" />
             </LinearLayout>

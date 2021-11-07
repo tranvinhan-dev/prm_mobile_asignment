@@ -23,20 +23,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:weightSum="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="248dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="@string/tv_quiz_name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textSize_20" />
-
                 <TextView
                     android:id="@+id/tvScoreQuizName"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
                     android:text="@string/tv_tmp_quiz_name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textSize_20" />
@@ -45,17 +45,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:weightSum="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="152dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="@string/tv_teacher_name" />
-
                 <TextView
                     android:id="@+id/tvUpdateTeacherName"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
+                    android:layout_weight="0.6"
                     android:layout_height="wrap_content"
                     android:text="@string/tv_tmp_teacher_name" />
             </LinearLayout>
@@ -63,19 +63,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:weightSum="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="@string/tv_quiz_subject"
                     android:textColor="@color/black" />
-
                 <TextView
                     android:id="@+id/tvSubject"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
                     android:text="@string/tv_tmp_quiz_subject"
                     android:textColor="@color/black" />
             </LinearLayout>

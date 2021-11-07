@@ -10,16 +10,16 @@
     tools:context=".ResultActivity">
 
     <TextView
-        android:id="@+id/tvResult"
+        android:id="@+id/tvNoCorrect"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_tall"
+        android:layout_height="@dimen/height_90"
         android:gravity="center"
 		android:text="@string/tv_noCorrectAnswer"
         android:textSize="@dimen/textSize_34"/>
     	<TextView
         android:id="@+id/tvQuizScore"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_tall"
+        android:layout_height="@dimen/height_90"
         android:gravity="center"
         android:text="@string/tv_quizScore"
         android:textSize="@dimen/textSize_34"/>

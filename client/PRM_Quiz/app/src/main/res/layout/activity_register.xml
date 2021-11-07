@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/padding_10"
     tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="50dp"
+        android:padding="@dimen/padding_40"
         android:text="@string/label_btnSignUp"
         android:textAlignment="center"
-        android:textSize="34sp" />
+        android:textSize="@dimen/textSize_34" />
 
     <TextView
         android:id="@+id/tvUsername2"
@@ -30,7 +30,7 @@
         android:ems="10"
         android:hint="@string/hint_passwordConfirm"
         android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        android:minHeight="@dimen/height_50" />
 
     <TextView
         android:id="@+id/tvPassword2"
@@ -45,7 +45,7 @@
         android:ems="10"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="@dimen/height_50" />
 
     <TextView
         android:id="@+id/tvPassword4"
@@ -60,7 +60,7 @@
         android:ems="10"
         android:hint="@string/hint_passwordConfirm"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="@dimen/height_50" />
 
     <TextView
         android:id="@+id/tvUsername4"
@@ -75,7 +75,7 @@
         android:ems="10"
         android:hint="@string/hint_name"
         android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        android:minHeight="@dimen/height_50" />
 
     <Button
         android:id="@+id/btnRegister2"

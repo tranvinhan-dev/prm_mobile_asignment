@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_margin="@dimen/margin_20"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
         android:orientation="horizontal"
-        android:padding="20dp">
+        android:padding="@dimen/padding_20">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,60 +22,60 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="248dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="Quiz Name:"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
                 <TextView
                     android:id="@+id/tvScoreQuizName"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:layout_weight="0.6"
+                    android:text="@string/tv_tmp_quiz_name"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/textSize_20" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="152dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.4"
                     android:text="Teacher Name:" />
-
                 <TextView
                     android:id="@+id/tvUpdateTeacherName"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:layout_weight="0.6"
+                    android:text="@string/tv_tmp_teacher_name" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Quiz Subject:"
+                    android:layout_weight="0.4"
+                    android:text="@string/tv_quiz_subject"
                     android:textColor="@color/black" />
-
                 <TextView
                     android:id="@+id/tvScore"
-                    android:layout_width="220dp"
+                    android:layout_width="@dimen/width_0"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:layout_weight="0.6"
+                    android:text="@string/tv_tmp_quiz_subject"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>

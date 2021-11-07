@@ -1,22 +1,29 @@
 <resources>
-    <string name="app_name">Quiz PRM Online</string>
+    <string name="app_name">Quiz Online</string>
     <string name="lb_username">Username</string>
     <string name="hint_username">Enter your username</string>
     <string name="lb_password">Password</string>
     <string name="hint_password">Enter your password</string>
     <string name="label_btnLogin">Login</string>
     <string name="label_btnSignUp">Sign Up</string>
-    <string name="lb_passwordConfirm">Password</string>
+    <string name="lb_passwordConfirm">Confirm password</string>
     <string name="hint_passwordConfirm">Enter your password again</string>
     <string name="lb_name">Full Name</string>
     <string name="hint_name">Enter your full name</string>
     <string name="tv_welcome_to_quiz_online">Welcome to Quiz Online</string>
 
     <string name="label_listQuiz">List of Quiz</string>
-<string name="btn_logout">Log out</string>    <string name="btn_cancel">Cancel</string>
-<string name="btn_back">Back</string>
+    <string name="btn_logout">Log out</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_back">Back</string>
     <string name="btn_edit_quiz">Edit Quiz</string>
-    <string name="btn_delete_quiz">Delete Quiz</string>    <!--activity_student_home - Begin-->
+    <string name="btn_delete_quiz">Delete Quiz</string>
+
+    <!--activity_add - Begin-->
+    <string name="tv_tmp_count_time">tmp Count Time</string>
+    <!--activity_add - End-->
+
+    <!--activity_student_home - Begin-->
     <string name="btn_ViewYourScore">View Your Score</string>
     <!--activity_student_home - End-->
 
@@ -42,7 +49,8 @@
     <string name="btn_addQuiz">Add</string>
     <string name="btn_add_more_question">Add more question</string>
     <!--Add Quiz page - End-->
-<!--Quiz Check Password page - Begin-->
+
+    <!--Quiz Check Password page - Begin-->
     <string name="btn_do_quiz">Do Quiz</string>
     <string name="hint_password_to_do_quiz">Enter this quiz password to do the test</string>
     <!--Quiz Check Password page - End-->
@@ -63,7 +71,7 @@
     <!--Update Quiz page - End-->
 
     <!--item_score_layout - Begin-->
-    <string name="tv_quiz_score">Quiz Score:</string>
+    <string name="tv_no_of_correct">No of Correct:</string>
     <string name="tv_date">Date:</string>
     <string name="tv_tmp_quiz_name">tmp QuizName</string>
     <string name="tv_tmp_quiz_score">tmp 100/100</string>
@@ -98,4 +106,14 @@
     <!--activity_result - Begin-->
     <string name="tv_results_of_your_quizzes">Results of your quizzes</string>
     <!--activity_result - End-->
+
+    <!--activity_quiz_check - Begin-->
+    <string name="tv_quiz_password">Quiz Password</string>
+    <string name="tv_enter_this_quiz_password_to_do_the_test">Enter this quiz password to do the test</string>
+    <!--activity_quiz_check - End-->
+
+    <!--item_question_layout - Begin-->
+    <string name="tv_tmp_question">tmp_question</string>
+    <string name="rb_tmp_answer">RadioButton</string>
+    <!--item_question_layout - End-->
 </resources>
