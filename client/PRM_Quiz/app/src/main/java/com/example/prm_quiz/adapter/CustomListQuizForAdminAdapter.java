@@ -61,7 +61,7 @@ public class CustomListQuizForAdminAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.tvName = (TextView) convertView.findViewById(R.id.tvScoreQuizName);
             holder.tvTeacherName = (TextView) convertView.findViewById(R.id.tvUpdateTeacherName);
-            holder.tvSubject = (TextView) convertView.findViewById(R.id.tvSubject2);
+            holder.tvSubject = (TextView) convertView.findViewById(R.id.tvSubject);
             holder.btnDelete= convertView.findViewById(R.id.btnDelete);
             holder.btnUpdate=convertView.findViewById(R.id.btnEdit);
             convertView.setTag(holder);

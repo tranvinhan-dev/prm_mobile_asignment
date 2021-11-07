@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.prm_quiz.api.ApiClient;
 import com.example.prm_quiz.model.Question;
 import com.example.prm_quiz.model.Quiz;
 import com.example.prm_quiz.util.MyEncryption;
+import com.example.prm_quiz.util.MyVar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +36,8 @@ public class UpdateQuizActivity extends AppCompatActivity {
     private TextView qTeacherName;
     private EditText qSubject;
     private EditText qPassword;
-    private EditText NewPassword;
-    private EditText ConfirmPassword;
+    private EditText newPassword;
+    private EditText confirmNewPassword;
     private EditText qTime;
     private Long qid;
     @Override
@@ -53,8 +55,8 @@ public class UpdateQuizActivity extends AppCompatActivity {
         qTeacherName.setText(getName());
         qSubject = (EditText) findViewById(R.id.edtUpdateSubjectName);
         qPassword = (EditText) findViewById(R.id.edtOldPassword);
-        NewPassword = (EditText) findViewById(R.id.edtNewPassword);
-        ConfirmPassword = (EditText) findViewById(R.id.edtConfirmPassword);
+        newPassword = (EditText) findViewById(R.id.edtNewPassword);
+        confirmNewPassword = (EditText) findViewById(R.id.edtConfirmPassword);
         qTime = (EditText) findViewById(R.id.edtUpdateQuizTime);
         qName.setText(q.getName());
         qSubject.setText(q.getSubject());
@@ -76,23 +78,47 @@ public class UpdateQuizActivity extends AppCompatActivity {
         btnUpdateQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyEncryption me = new MyEncryption();
+                String msg = "";
+                if(TextUtils.isEmpty(qName.getText())
+                        || TextUtils.isEmpty(qTeacherName.getText())
+                        || TextUtils.isEmpty(qSubject.getText())
+                        || TextUtils.isEmpty(qTime.getText())
+                ) {
+                    msg = "All information must be filled";
+                } else {
+                    String p1 = qPassword.getText().toString();
+                    String p2 = newPassword.getText().toString();
+                    String p3 = confirmNewPassword.getText().toString();
+                    if (!p1.isEmpty()
+                            && ( (p2.isEmpty() || p2.isEmpty()) || ! p2.equals(p3)) ) {
+                        msg = "New Pw & Confirm Pw must not empty & match";
+                    } else {
+                        MyEncryption me = new MyEncryption();
 
-                Long id = qid;
-                String name = qName.getText().toString();
-                String teacherName = qTeacherName.getText().toString();
-                String subject = qSubject.getText().toString();
-                String password = NewPassword.getText().toString();
-                String encryptPass = "";
-                try {
-                    encryptPass = me.getMyEncryption(name, qPassword.getText().toString());
-                } catch (Exception e){}
-                int time = Integer.parseInt(qTime.getText().toString());
-                List<Question> listQuestion = adapter.getListData();
-                //return quiz
-                Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
-                //add quiz
-                updateQuiz(getToken(),quiz);
+                        Long id = qid;
+                        String name = qName.getText().toString();
+                        String teacherName = qTeacherName.getText().toString();
+                        String subject = qSubject.getText().toString();
+                        String password = newPassword.getText().toString();
+                        String encryptPass = "";
+                        try {
+                            encryptPass = me.getMyEncryption(name, password);
+                        } catch (Exception e) {
+                        }
+                        int time = Integer.parseInt(qTime.getText().toString());
+                        if (time >= MyVar.MIN_QUIZ_TIME) {
+                            List<Question> listQuestion = adapter.getListData();
+                            //return quiz
+                            Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
+                            //add quiz
+                            updateQuiz(getToken(), quiz);
+                            msg = "Edit quiz successful";
+                        } else {
+                            msg = "Quiz Time must at least more than 5 seconds";
+                        }
+                    }
+                }
+                Toast.makeText(UpdateQuizActivity.this, msg, Toast.LENGTH_LONG).show();
             }
         });
 
