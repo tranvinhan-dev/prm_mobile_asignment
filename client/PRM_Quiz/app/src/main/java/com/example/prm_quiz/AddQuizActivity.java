@@ -44,7 +44,6 @@ public class AddQuizActivity extends AppCompatActivity {
 
         btnAddQuiz = (Button) findViewById(R.id.btnAddQuiz);
         btnCancelAddQuiz = (Button) findViewById(R.id.btnCancelAddQuiz);
-
         qName = (EditText) findViewById(R.id.edtQuizName);
         qTeacherName = (TextView) findViewById(R.id.tvTeacherName);
         qTeacherName.setText(getName());

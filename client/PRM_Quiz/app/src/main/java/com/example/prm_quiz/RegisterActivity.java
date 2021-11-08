@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                         try {
                             if(response.code() != 401){
-                                Intent _intent = new Intent(RegisterActivity.this, StudentHomeActivity.class);
+                                Intent _intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterResponse user = response.body();
                                 startActivity(_intent);
                             }else{

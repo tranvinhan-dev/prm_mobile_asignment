@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:gravity="center"
     android:orientation="vertical"
+    android:padding="15dp"
     tools:context=".AddQuizActivity">
 
 
@@ -32,10 +33,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="@string/tv_teacher_email" />
+
                 <TextView
                     android:id="@+id/tvUpdateTeacherName"
                     android:layout_width="match_parent"
@@ -50,11 +53,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_subject_name" />
+
                 <EditText
                     android:id="@+id/edtUpdateSubjectName"
                     android:layout_width="match_parent"
@@ -68,11 +73,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_quiz_name" />
+
                 <EditText
                     android:id="@+id/edtUpdateQuizName"
                     android:layout_width="match_parent"
@@ -86,11 +93,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_quiz_time" />
+
                 <EditText
                     android:id="@+id/edtUpdateQuizTime"
                     android:layout_width="match_parent"
@@ -98,17 +107,29 @@
                     android:hint="@string/hint_quiz_time"
                     android:inputType="number"
                     android:minHeight="48dp" />
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Change Password "
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_old_password" />
+
                 <EditText
                     android:id="@+id/edtOldPassword"
                     android:layout_width="match_parent"
@@ -122,11 +143,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_new_password" />
+
                 <EditText
                     android:id="@+id/edtConfirmPassword"
                     android:layout_width="match_parent"
@@ -140,11 +163,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tv_confirm_new_password" />
+
                 <EditText
                     android:id="@+id/edtNewPassword"
                     android:layout_width="match_parent"
@@ -179,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/padding_10">
+
                 <Button
                     android:id="@+id/btnUpdateQuiz"
                     android:layout_width="wrap_content"
@@ -187,6 +213,7 @@
                     android:layout_marginRight="50dp"
                     android:layout_weight="1"
                     android:text="@string/btn_update" />
+
                 <Button
                     android:id="@+id/btnCancelUpdateQuiz"
                     android:layout_width="wrap_content"

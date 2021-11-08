@@ -39,9 +39,8 @@ public class ScoreController {
     @CrossOrigin
     @GetMapping("/scores")
     public List<Score> getAllScores() {
-        return scoreRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+        return scoreRepository.findAll(Sort.by(Sort.Direction.DESC, "date"));
     }
-
     @CrossOrigin
     @GetMapping("/scores/{id}")
     public ResponseEntity<Score> getScoreById(@PathVariable(value = "id") Long scoreId)
