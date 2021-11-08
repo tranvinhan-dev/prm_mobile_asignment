@@ -41,6 +41,7 @@ public class UpdateQuizActivity extends AppCompatActivity {
     private EditText qTime;
     private Long qid;
     private String qPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +49,12 @@ public class UpdateQuizActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         Bundle b = intent.getExtras();
         Quiz q = (Quiz) b.getSerializable("quiz");
-        qid= q.getId();
-        qPass=q.getPassword();
+        qid = q.getId();
+        qPass = q.getPassword();
         btnUpdateQuiz = (Button) findViewById(R.id.btnUpdateQuiz);
         btnCancelUpdateQuiz = (Button) findViewById(R.id.btnCancelUpdateQuiz);
         qName = (EditText) findViewById(R.id.edtUpdateQuizName);
         qTeacherName = (TextView) findViewById(R.id.tvUpdateTeacherName);
-        qTeacherName.setText(getName());
         qSubject = (EditText) findViewById(R.id.edtUpdateSubjectName);
         qPassword = (EditText) findViewById(R.id.edtOldPassword);
         newPassword = (EditText) findViewById(R.id.edtNewPassword);
@@ -63,10 +63,10 @@ public class UpdateQuizActivity extends AppCompatActivity {
         qName.setText(q.getName());
         qSubject.setText(q.getSubject());
 //        qPassword.setText(q.getPassword());
-        qTime.setText(q.getTime()+"");
+        qTime.setText(q.getTime() + "");
         List<Question> listQuestion = q.getListQuestion();
         final ListView listView = (ListView) findViewById(R.id.lvUpdateQuestion);
-        CustomListQuestionAtAddAdapter adapter = new CustomListQuestionAtAddAdapter(UpdateQuizActivity.this,listQuestion);
+        CustomListQuestionAtAddAdapter adapter = new CustomListQuestionAtAddAdapter(UpdateQuizActivity.this, listQuestion);
         listView.setAdapter(adapter);
         Button btnAddmore = findViewById(R.id.btnAddMoreQuestion2);
         btnAddmore.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,7 @@ public class UpdateQuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String msg = "";
-                if(TextUtils.isEmpty(qName.getText())
+                if (TextUtils.isEmpty(qName.getText())
                         || TextUtils.isEmpty(qTeacherName.getText())
                         || TextUtils.isEmpty(qSubject.getText())
                         || TextUtils.isEmpty(qTime.getText())
@@ -92,43 +92,47 @@ public class UpdateQuizActivity extends AppCompatActivity {
                     String p2 = newPassword.getText().toString();
                     String p3 = confirmNewPassword.getText().toString();
                     if (!p1.isEmpty()
-                            && ( (p2.isEmpty() || p2.isEmpty()) || ! p2.equals(p3)) ) {
+                            && ((p2.isEmpty() || p2.isEmpty()) || !p2.equals(p3))) {
                         msg = "New Pw & Confirm Pw must not empty & match";
                     } else {
                         MyEncryption me = new MyEncryption();
-
-Long id = qid;
-                String name = qName.getText().toString();
-                String teacherName = qTeacherName.getText().toString();
-                String subject = qSubject.getText().toString();
-                String password = qPassword.getText().toString();
-                String confirmPassword = NewPassword.getText().toString();
-                String newPassword =  ConfirmPassword.getText().toString();
-                String encryptPass = "", encryptnewPass="";
-                try {
-                    encryptPass = me.getMyEncryption(name, qPassword.getText().toString());
-                } catch (Exception e){}
-                try {
-                    encryptnewPass = me.getMyEncryption(name, NewPassword.getText().toString());
-                } catch (Exception e){}
-                if(!newPassword.isEmpty() ){
-                    if(newPassword.equals(confirmPassword) && encryptPass.equals(qPass)){
-                        int time = Integer.parseInt(qTime.getText().toString());
-                        List<Question> listQuestion = adapter.getListData();
-                        //return quiz
-                        Quiz quiz = new Quiz(id, name, teacherName, subject, encryptnewPass, time, listQuestion);
-                        //add quiz
-                        updateQuiz(getToken(),quiz);
-                    }else{
-                        Toast.makeText(UpdateQuizActivity.this, "Change password is wrong", Toast.LENGTH_SHORT).show();
+                        qTeacherName.setText(getName());
+                        Long id = qid;
+                        String name = qName.getText().toString();
+                        String teacherName = qTeacherName.getText().toString();
+                        String subject = qSubject.getText().toString();
+                        String password = qPassword.getText().toString();
+                        String confirmPasswordString = confirmNewPassword.getText().toString();
+                        String newPasswordString = newPassword.getText().toString();
+                        String encryptPass = "", encryptnewPass = "";
+                        try {
+                            encryptPass = me.getMyEncryption(name, password);
+                        } catch (Exception e) {
+                        }
+                        try {
+                            encryptnewPass = me.getMyEncryption(name, newPasswordString);
+                        } catch (Exception e) {
+                        }
+                        if (!newPasswordString.isEmpty()) {
+                            if (newPasswordString.equals(confirmPasswordString) && encryptPass.equals(qPass)) {
+                                int time = Integer.parseInt(qTime.getText().toString());
+                                List<Question> listQuestion = adapter.getListData();
+                                //return quiz
+                                Quiz quiz = new Quiz(id, name, teacherName, subject, encryptnewPass, time, listQuestion);
+                                //add quiz
+                                updateQuiz(getToken(), quiz);
+                            } else {
+                                Toast.makeText(UpdateQuizActivity.this, "Change password is wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            int time = Integer.parseInt(qTime.getText().toString());
+                            List<Question> listQuestion = adapter.getListData();
+                            //return quiz
+                            Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
+                            //add quiz
+                            updateQuiz(getToken(), quiz);
+                        }
                     }
-                }else{
-                    int time = Integer.parseInt(qTime.getText().toString());
-                    List<Question> listQuestion = adapter.getListData();
-                    //return quiz
-                    Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
-                    //add quiz
-                    updateQuiz(getToken(),quiz);
                 }
             }
         });
@@ -140,29 +144,33 @@ Long id = qid;
             }
         });
     }
+
     private String getToken() {
         prefs = UpdateQuizActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         String token = prefs.getString("token", "");
         return token;
     }
+
     private String getName() {
         prefs = UpdateQuizActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         String token = prefs.getString("name", "null");
         return token;
     }
+
     private List<Question> getListData() {
         List<Question> listQuestion = new ArrayList<>();
-        listQuestion.add(new Question(0L,"","","","","",""));
+        listQuestion.add(new Question(0L, "", "", "", "", "", ""));
         return listQuestion;
     }
-    private void updateQuiz(String token,Quiz quiz) {
-        Call<Quiz> userCall = ApiClient.getUserService().updateQuiz("Bearer " + token,quiz.getId(),quiz);
+
+    private void updateQuiz(String token, Quiz quiz) {
+        Call<Quiz> userCall = ApiClient.getUserService().updateQuiz("Bearer " + token, quiz.getId(), quiz);
         userCall.enqueue(new Callback<Quiz>() {
             @Override
             public void onResponse(Call<Quiz> call, Response<Quiz> response) {
                 try {
                     Toast.makeText(UpdateQuizActivity.this, "update call sucess", Toast.LENGTH_SHORT).show();
-                    Intent in = new Intent(UpdateQuizActivity.this,TeacherHomeActivity.class);
+                    Intent in = new Intent(UpdateQuizActivity.this, TeacherHomeActivity.class);
                     startActivity(in);
                 } catch (Exception e) {
                     Toast.makeText(UpdateQuizActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

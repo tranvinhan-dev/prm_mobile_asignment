@@ -1,10 +1,12 @@
 package com.example.prm_quiz;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.example.prm_quiz.model.Question;
 import com.example.prm_quiz.model.Quiz;
 import com.example.prm_quiz.model.Score;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,12 +57,14 @@ public class QuizActivity extends AppCompatActivity {
                 //here you can have your logic to set text to edittext
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.O)
             public void onFinish() {
                 size = q.getListQuestion().size();
                 result = adapter.getResult();
-                long millis=System.currentTimeMillis();
-                java.sql.Date date=new java.sql.Date(millis);
-                Score score = new Score(0L, getUserid(), q.getId(), q.getName(), result,size,date.toString());
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String time = dtf.format(now);
+                Score score = new Score(0L, getUserid(), q.getId(), q.getName(), result, size, time);
                 putScore(getToken(), score);
             }
 
@@ -97,7 +103,7 @@ public class QuizActivity extends AppCompatActivity {
                     if (score != null) {
                         Intent _intent = new Intent(QuizActivity.this, ResultActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putInt("size",size );
+                        bundle.putInt("size", size);
                         bundle.putInt("result", result);
                         _intent.putExtras(bundle);
                         startActivity(_intent);

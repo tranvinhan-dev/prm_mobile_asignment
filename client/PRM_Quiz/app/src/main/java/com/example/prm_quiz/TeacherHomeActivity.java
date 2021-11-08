@@ -65,7 +65,11 @@ public class TeacherHomeActivity extends AppCompatActivity {
         String token = prefs.getString("token", "");
         return token;
     }
-
+    private String getName() {
+        prefs = TeacherHomeActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String token = prefs.getString("name", "");
+        return token;
+    }
     private void getListData(String token) {
         Call<List<Quiz>> userCall = ApiClient.getUserService().getQuizs("Bearer " + token);
         userCall.enqueue(new Callback<List<Quiz>>() {
@@ -77,8 +81,15 @@ public class TeacherHomeActivity extends AppCompatActivity {
                     quizList = response.body();
                     if (!quizList.isEmpty()) {
                         List<Quiz> image_details = quizList;
+                        List<Quiz> tmp_quizList = new ArrayList<>();
+                        for(int i =0 ; i< image_details.size();i++){
+                            Quiz tmp_quiz= image_details.get(i);
+                            if(tmp_quiz.getTeacherName().equals(getName())){
+                                tmp_quizList.add(tmp_quiz);
+                            }
+                        }
                         final ListView listView = (ListView) findViewById(R.id.lvQuiz2);
-                        listView.setAdapter(new CustomListQuizForAdminAdapter(TeacherHomeActivity.this, image_details,prefs));
+                        listView.setAdapter(new CustomListQuizForAdminAdapter(TeacherHomeActivity.this, tmp_quizList,prefs));
                     }
                     Toast.makeText(TeacherHomeActivity.this, "call sucess "+quizList.get(0).getListQuestion().get(0).toString(), Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
