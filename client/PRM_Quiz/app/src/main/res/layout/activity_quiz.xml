@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_margin="@dimen/margin_20"
     tools:context=".QuizActivity">
 
     <TextView
@@ -12,20 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="@string/tv_tmp_count_time" />
 
     <ListView
         android:id="@+id/lvQuestion"
         android:layout_width="match_parent"
         android:layout_height="583dp"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/margin_20"
         android:layout_weight="1">
-
     </ListView>
 
     <Button
         android:id="@+id/btnFinish"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_40"
         android:text="Finish" />
 </LinearLayout>
