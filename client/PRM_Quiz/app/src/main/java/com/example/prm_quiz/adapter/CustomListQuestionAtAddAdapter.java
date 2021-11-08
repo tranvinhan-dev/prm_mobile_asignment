@@ -1,18 +1,26 @@
 package com.example.prm_quiz.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.prm_quiz.AddQuizActivity;
 import com.example.prm_quiz.R;
+import com.example.prm_quiz.UpdateQuizActivity;
 import com.example.prm_quiz.model.Question;
 
 import java.util.HashMap;
@@ -56,6 +64,7 @@ public class CustomListQuestionAtAddAdapter extends BaseAdapter {
             holder.edtB = (EditText) convertView.findViewById(R.id.edtB);
             holder.edtC = (EditText) convertView.findViewById(R.id.edtC);
             holder.edtD = (EditText) convertView.findViewById(R.id.edtD);
+            holder.btnRemove=(Button) convertView.findViewById(R.id.btnRemove);
             holder.rbCorrectA = (RadioButton) convertView.findViewById(R.id.rbCorrectAnswerA);
             holder.rbCorrectB = (RadioButton) convertView.findViewById(R.id.rbCorrectAnswerB);
             holder.rbCorrectC = (RadioButton) convertView.findViewById(R.id.rbCorrectAnswerC);
@@ -67,6 +76,23 @@ public class CustomListQuestionAtAddAdapter extends BaseAdapter {
         }
 
         Question  question= (Question) this.listData.get(position);
+        holder.btnRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Remove", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder adb=new AlertDialog.Builder(context);
+                adb.setTitle("Delete?");
+                adb.setMessage("Are you sure you want to delete " + position);
+                final int positionToRemove = position;
+                adb.setNegativeButton("Cancel", null);
+                adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        listData.remove(position);
+                        CustomListQuestionAtAddAdapter.this.notifyDataSetChanged();
+                    }});
+                adb.show();
+            }
+        });
         if(question.getId() != 0L){
             holder.edtQuestion.setText(question.getQuestion());
             holder.edtA.setText(question.getAnswerA());
@@ -80,6 +106,7 @@ public class CustomListQuestionAtAddAdapter extends BaseAdapter {
             if(correctQuestion.equals(question.getAnswerD())) holder.rbCorrectD.setChecked(true);
 
         }
+
         int pos = position +1;
         holder.tv7.setText("Question "+pos);
 
@@ -228,6 +255,10 @@ public class CustomListQuestionAtAddAdapter extends BaseAdapter {
         listData.add(new Question(0L,"","","","","",""));
     }
 
+    public void remove(int i) {
+        listData.remove(i);
+    }
+
 
     static class ViewHolder {
         EditText edtQuestion;
@@ -241,6 +272,7 @@ public class CustomListQuestionAtAddAdapter extends BaseAdapter {
         RadioButton rbCorrectD;
         RadioGroup rgGroup;
         TextView tv7;
+        Button btnRemove;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.prm_quiz.api;
 
+import com.example.prm_quiz.util.MyVar;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -16,7 +18,7 @@ public class ApiClient {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://10.0.2.2:8080/")
+                .baseUrl(MyVar.BASE_URL)
                 .client(okHttpClient)
                 .build();
         return retrofit;

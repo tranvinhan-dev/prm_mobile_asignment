@@ -18,6 +18,7 @@ import com.example.prm_quiz.api.ApiClient;
 import com.example.prm_quiz.model.Quiz;
 import com.example.prm_quiz.model.Score;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,6 +47,11 @@ public class ScoreActivity extends AppCompatActivity {
         String token = prefs.getString("token", "");
         return token;
     }
+    private Long getId() {
+        prefs = ScoreActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        Long id = prefs.getLong("id",0L);
+        return id;
+    }
     private void getListData(String token) {
         Call<List<Score>> userCall = ApiClient.getUserService().getScore("Bearer " + token);
         userCall.enqueue(new Callback<List<Score>>() {
@@ -56,7 +62,13 @@ public class ScoreActivity extends AppCompatActivity {
                     //get list of subject
                     scoreList = response.body();
                     if (!scoreList.isEmpty()) {
-                        List<Score> image_details = scoreList;
+                        List<Score> image_details = new ArrayList<>();
+                        for(int i =0 ; i< scoreList.size();i++){
+                            Score tmp_score = scoreList.get(i);
+                            if(tmp_score.getUserId().equals(getId())){
+                                image_details.add(tmp_score);
+                            }
+                        }
                         final ListView listView = (ListView) findViewById(R.id.lvScore);
                         listView.setAdapter(new CustomListScoreForStudentAdapter(ScoreActivity.this, image_details));
                     }

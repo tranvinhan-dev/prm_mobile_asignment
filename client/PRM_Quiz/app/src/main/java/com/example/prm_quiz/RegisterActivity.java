@@ -65,9 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                             try {
                                 if (response.code() != 401) {
-                                    Intent _intent = new Intent(RegisterActivity.this, StudentHomeActivity.class);
-                                    RegisterResponse user = response.body();
-                                    startActivity(_intent);
+                                    finish();
                                 } else {
                                     Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
                                 }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/drawable/view_bg.xml" value="0.209375" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_add_quiz.xml" value="0.33" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_login.xml" value="0.21195652173913043" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/activity_quiz.xml" value="0.20572916666666666" />
@@ -16,7 +17,7 @@
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_question_create_layout.xml" value="0.25" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_question_layout.xml" value="0.22" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/item_score_layout.xml" value="0.25" />
-        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/list_item_quiz_admin_layout.xml" value="0.1" />
+        <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/list_item_quiz_admin_layout.xml" value="0.18" />
         <entry key="..\:/FPT/Homework/PRM/ASG_PRM/prm_mobile_asignment/client/PRM_Quiz/app/src/main/res/layout/list_item_quiz_student_layout.xml" value="0.25" />
         <entry key="..\:/FPT/Homework/PRM/PRM_Quiz/app/src/main/res/layout/activity_add_quiz.xml" value="0.5" />
         <entry key="..\:/FPT/Homework/PRM/PRM_Quiz/app/src/main/res/layout/activity_home.xml" value="0.33" />

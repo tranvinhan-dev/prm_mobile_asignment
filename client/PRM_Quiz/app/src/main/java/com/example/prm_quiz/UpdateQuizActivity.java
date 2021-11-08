@@ -1,13 +1,16 @@
 package com.example.prm_quiz;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -77,6 +80,7 @@ public class UpdateQuizActivity extends AppCompatActivity {
 
             }
         });
+
         btnUpdateQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,10 +131,27 @@ public class UpdateQuizActivity extends AppCompatActivity {
                         } else {
                             int time = Integer.parseInt(qTime.getText().toString());
                             List<Question> listQuestion = adapter.getListData();
-                            //return quiz
-                            Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
-                            //add quiz
-                            updateQuiz(getToken(), quiz);
+                            List<Question> tmp_listQuestion = new ArrayList<>();
+                            for (int i = 0; i < listQuestion.size(); i++) {
+                                Question tmp_question = listQuestion.get(i);
+                                if (tmp_question.getQuestion().isEmpty() || tmp_question.getAnswerA().isEmpty() || tmp_question.getAnswerB().isEmpty()
+                                        || tmp_question.getAnswerC().isEmpty() || tmp_question.getAnswerD().isEmpty() || tmp_question.getCorrectAnswer().isEmpty()) {
+                                    Toast.makeText(UpdateQuizActivity.this, "Question is not valid", Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    tmp_listQuestion.add(tmp_question);
+                                }
+                            }
+                            if (tmp_listQuestion.size() > 0) {
+                                //return quiz
+                                Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, tmp_listQuestion);
+                                //add quiz
+                                updateQuiz(getToken(), quiz);
+                                Toast.makeText(UpdateQuizActivity.this, "Call Api Success", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(UpdateQuizActivity.this, "Question is not valid", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     }
                 }

@@ -1,13 +1,16 @@
 package com.example.prm_quiz;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -58,6 +61,7 @@ public class AddQuizActivity extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.lvQuestion);
         CustomListQuestionAtAddAdapter adapter = new CustomListQuestionAtAddAdapter(AddQuizActivity.this,listQuestion);
         listView.setAdapter(adapter);
+
         Button btnAddmore = findViewById(R.id.btnAddMoreQuestion);
         btnAddmore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,11 +101,28 @@ public class AddQuizActivity extends AppCompatActivity {
                         int time = Integer.parseInt(qTime.getText().toString());
                         if (time >= MyVar.MIN_QUIZ_TIME) {
                             List<Question> listQuestion = adapter.getListData();
-                            //return quiz
-                            Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, listQuestion);
-                            //add quiz
-                            addQuiz(getToken(), quiz);
-                            msg = "Add quiz successful";
+//                            check list question
+                            List<Question> tmp_listQuestion= new ArrayList<>();
+                            for (int i =0 ; i< listQuestion.size();i++){
+                                Question tmp_question = listQuestion.get(i);
+                                if(tmp_question.getQuestion().isEmpty() || tmp_question.getAnswerA().isEmpty() || tmp_question.getAnswerB().isEmpty()
+                                || tmp_question.getAnswerC().isEmpty()|| tmp_question.getAnswerD().isEmpty() || tmp_question.getCorrectAnswer().isEmpty()){
+                                    msg = "Question is not valid";
+                                }else{
+                                    tmp_listQuestion.add(tmp_question);
+
+                                }
+                            }
+                            if(tmp_listQuestion.size() > 0 ){
+                                //return quiz
+                                Quiz quiz = new Quiz(id, name, teacherName, subject, encryptPass, time, tmp_listQuestion);
+                                //add quiz
+                                addQuiz(getToken(), quiz);
+                                msg = "Add quiz successful";
+                            }else{
+                                msg = "Question is not valid";
+                            }
+
                         } else {
                             msg = "Quiz Time must at least more than 5 seconds";
                         }
