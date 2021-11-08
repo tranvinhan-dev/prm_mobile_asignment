@@ -53,30 +53,36 @@ public class RegisterActivity extends AppCompatActivity {
             String pass = edtPassword2.getText().toString();
             String name = edtName.getText().toString();
             String confirm = edtConfirm.getText().toString();
-            if(confirm.equals(pass)){
-                RegisterRequest rr = new RegisterRequest(user,pass,name);
-                Call<RegisterResponse> userCall = ApiClient.getUserService().register(rr);
-                userCall.enqueue(new Callback<RegisterResponse>() {
-                    @Override
-                    public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                        try {
-                            if(response.code() != 401){
-                                Intent _intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                RegisterResponse user = response.body();
-                                startActivity(_intent);
-                            }else{
-                                Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (Exception e) {
-                            Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+ if (user.isEmpty() || pass.isEmpty()
+                || name.isEmpty() || confirm.isEmpty()){
+                Toast.makeText(RegisterActivity.this, "All information must be filled", Toast.LENGTH_SHORT).show();
+            } else {
+                if (confirm.equals(pass)) {
+                    RegisterRequest rr = new RegisterRequest(user, pass, name);
+                    Call<RegisterResponse> userCall = ApiClient.getUserService().register(rr);
+                    userCall.enqueue(new Callback<RegisterResponse>() {
+                        @Override
+                        public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                            try {
+                                if (response.code() != 401) {
+                                    Intent _intent = new Intent(RegisterActivity.this, StudentHomeActivity.class);
+                                    RegisterResponse user = response.body();
+                                    startActivity(_intent);
+                                } else {
+                                    Toast.makeText(RegisterActivity.this, "Register Failed", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (Exception e) {
+                                Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                        Toast.makeText(RegisterActivity.this, "Call Api Error" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                            Toast.makeText(RegisterActivity.this, "Call Api Error" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(RegisterActivity.this, "Password & Confirm not match", Toast.LENGTH_SHORT).show();
+                }
             }
         }
         catch(Exception e){
