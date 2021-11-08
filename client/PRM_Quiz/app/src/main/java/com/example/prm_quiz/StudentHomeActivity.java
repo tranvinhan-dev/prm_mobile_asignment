@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prm_quiz.adapter.CustomListQuizForStudentAdapter;
@@ -65,6 +66,8 @@ public class StudentHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        TextView tvWelcome = findViewById(R.id.tvWelcomeStudent);
+        tvWelcome.setText("Welcome "+ getName()+" to Quiz Online");
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +99,11 @@ public class StudentHomeActivity extends AppCompatActivity {
         prefs = StudentHomeActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         prefs.edit().remove("token").commit();
 
+    }
+    private String getName() {
+        prefs = StudentHomeActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        String token = prefs.getString("name", "");
+        return token;
     }
     private String getToken() {
         prefs = StudentHomeActivity.this.getSharedPreferences("myPrefs", Context.MODE_PRIVATE);

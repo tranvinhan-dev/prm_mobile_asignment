@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prm_quiz.adapter.CustomListQuizForAdminAdapter;
@@ -74,6 +75,9 @@ public class TeacherHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        TextView tvWelcome = findViewById(R.id.tvWelcomeTeacher);
+        tvWelcome.setText("Welcome "+ getName()+" to Quiz Online");
+
         //banner
         mViewPager2 = findViewById(R.id.view_pager_2);
         mCircleIndicator3 = findViewById(R.id.circle_indicator_3);
