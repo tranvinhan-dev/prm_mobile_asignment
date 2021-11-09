@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="pure_white">#FFFFFF</color>
     <color name="background">#EEEEEE</color>
+    <color name="light_sky_blue">#87CEFA</color>
 </resources>
